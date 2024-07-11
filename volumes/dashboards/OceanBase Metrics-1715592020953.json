@@ -1,0 +1,512 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "prometheus",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "oceanbase metrics collected from oceanbase using obagent",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "gnetId": 15215,
+  "graphTooltip": 0,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": "prometheus",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": "prometheus",
+          "refId": "A"
+        }
+      ],
+      "title": "INFINITY DEMO",
+      "type": "row"
+    },
+    {
+      "datasource": "prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "graph": false,
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "reqps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "prometheus",
+          "exemplar": true,
+          "expr": "sum(rate(ob_sysstat{stat_id=\"40002\",ob_cluster_name=~\"$obcluster\",obzone=~\"$obzone\",svr_ip=~\"$observer\",tenant_name=~\"$tenant_name\"}[$__rate_interval])) by ($group) + sum(rate(ob_sysstat{stat_id=\"40004\",ob_cluster_name=~\"$obcluster\",obzone=~\"$obzone\",svr_ip=~\"$observer\",tenant_name=~\"$tenant_name\"}[$__rate_interval])) by ($group) + sum(rate(ob_sysstat{stat_id=\"40006\",ob_cluster_name=~\"$obcluster\",obzone=~\"$obzone\",svr_ip=~\"$observer\",tenant_name=~\"$tenant_name\"}[$__rate_interval])) by ($group) + sum(rate(ob_sysstat{stat_id=\"40008\",ob_cluster_name=~\"$obcluster\",obzone=~\"$obzone\",svr_ip=~\"$observer\",tenant_name=~\"$tenant_name\"}[$__rate_interval])) by ($group) + sum(rate(ob_sysstat{stat_id=\"40000\",ob_cluster_name=~\"$obcluster\",obzone=~\"$obzone\",svr_ip=~\"$observer\",tenant_name=~\"$tenant_name\"}[$__rate_interval])) by ($group)",
+          "interval": "",
+          "legendFormat": "qps {{$group}}",
+          "refId": "A"
+        }
+      ],
+      "title": "QPS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "graph": false,
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "id": 38,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "prometheus",
+          "exemplar": true,
+          "expr": "sum(ob_sysstat{stat_id=\"140006\",ob_cluster_name=~\"$obcluster\",obzone=~\"$obzone\",svr_ip=~\"$observer\",tenant_name=~\"$tenant_name\"}) by ($group) / sum(ob_sysstat{stat_id=\"140005\",ob_cluster_name=~\"$obcluster\",obzone=~\"$obzone\",svr_ip=~\"$observer\",tenant_name=~\"$tenant_name\"}) by ($group)",
+          "interval": "",
+          "legendFormat": "cpu util {{$group}}",
+          "refId": "A"
+        }
+      ],
+      "title": "Cpu Utilization",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 39,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "none",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
+          },
+          "editorMode": "code",
+          "expr": "up{instance=\"192.168.0.11:9100\"}",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
+          },
+          "editorMode": "code",
+          "expr": "up{instance=\"192.168.0.12:9100\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "P1809F7CD0C75ACF3"
+          },
+          "editorMode": "code",
+          "expr": "up{instance=\"192.168.0.13:9100\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Node status",
+      "type": "stat"
+    }
+  ],
+  "refresh": "1s",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": "",
+        "current": {
+          "selected": true,
+          "text": "demo_421_16c",
+          "value": "demo_421_16c"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "P1809F7CD0C75ACF3"
+        },
+        "definition": "label_values(ob_cluster_name)",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "obcluster",
+        "options": [],
+        "query": {
+          "query": "label_values(ob_cluster_name)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "P1809F7CD0C75ACF3"
+        },
+        "definition": "label_values({ob_cluster_name=~\"$obcluster\"}, obzone)",
+        "hide": 0,
+        "includeAll": true,
+        "multi": false,
+        "name": "obzone",
+        "options": [],
+        "query": {
+          "query": "label_values({ob_cluster_name=~\"$obcluster\"}, obzone)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "P1809F7CD0C75ACF3"
+        },
+        "definition": "label_values({ob_cluster_name=~\"$obcluster\",obzone=~\"$obzone\"}, svr_ip)",
+        "hide": 0,
+        "includeAll": true,
+        "multi": false,
+        "name": "observer",
+        "options": [],
+        "query": {
+          "query": "label_values({ob_cluster_name=~\"$obcluster\",obzone=~\"$obzone\"}, svr_ip)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "P1809F7CD0C75ACF3"
+        },
+        "definition": "label_values({ob_cluster_name=~\"$obcluster\",obzone=~\"$obzone\",svr_ip=~\"$observer\"}, tenant_name)",
+        "hide": 0,
+        "includeAll": true,
+        "multi": false,
+        "name": "tenant_name",
+        "options": [],
+        "query": {
+          "query": "label_values({ob_cluster_name=~\"$obcluster\",obzone=~\"$obzone\",svr_ip=~\"$observer\"}, tenant_name)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "svr_ip",
+          "value": "svr_ip"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "group",
+        "options": [
+          {
+            "selected": false,
+            "text": "ob_cluster_name",
+            "value": "ob_cluster_name"
+          },
+          {
+            "selected": false,
+            "text": "obzone",
+            "value": "obzone"
+          },
+          {
+            "selected": true,
+            "text": "svr_ip",
+            "value": "svr_ip"
+          },
+          {
+            "selected": false,
+            "text": "tenant_name",
+            "value": "tenant_name"
+          }
+        ],
+        "query": "ob_cluster_name, obzone, svr_ip, tenant_name",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timeRangeUpdatedDuringEditOrView": false,
+  "timepicker": {
+    "refresh_intervals": [
+      "1s",
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "OceanBase Metrics",
+  "uid": "oceanbase",
+  "version": 1,
+  "weekStart": ""
+}

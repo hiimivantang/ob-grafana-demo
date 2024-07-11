@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  grafana:
+    image: grafana/grafana:latest 
+    container_name: grafana
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - $PWD/volumes/provisioning:/etc/grafana/provisioning
+      - $PWD/volumes/dashboards:/var/lib/grafana/dashboards
+      - $PWD/volumes/grafana.ini:/etc/grafana/grafana.ini
+    ports:
+     - '3000:3000'
